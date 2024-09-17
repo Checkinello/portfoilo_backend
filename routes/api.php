@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Blog\CreateBlogController;
+use App\Http\Controllers\Blog\DeleteBlogController;
 use App\Http\Controllers\Blog\ReadAllBlogsController;
 use App\Http\Controllers\Blog\UpdateBlogController;
 use Illuminate\Http\Request;
@@ -13,5 +14,5 @@ Route::get('/user', function (Request $request) {
 route::post('/blog',CreateBlogController::class);
 route::get('/blogs',ReadAllBlogsController::class);
 route::put('blog/{id}', UpdateBlogController::class);
-
+route::delete('blog/{id}', DeleteBlogController::class);
 

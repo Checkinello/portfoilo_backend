@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image_name')->nullable();
             $table->timestamps();
 
-            $table->foreignUuid('user_id')->nullable()->constrained();
+            $table->foreignUuid('user_id')->nullable()->constrained();//TODO: make this required
         });
     }
 

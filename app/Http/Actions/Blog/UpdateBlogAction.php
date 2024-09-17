@@ -9,6 +9,6 @@ class UpdateBlogAction
     public function __invoke($id, $data)
     {
 
-        return Blog::where('id', $id)->update($data);
+        return Blog::findOrFail($id)->update($data);
     }
 }

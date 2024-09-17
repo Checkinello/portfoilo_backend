@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Actions\Blog\CreateBlogAction;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateBlogRequest;
 use Illuminate\Http\Request;
 
 class CreateBlogController extends Controller
 {
     public function __invoke(
         CreateBlogAction $createBlogAction,
-        Request $request
+        CreateBlogRequest $request
     )
     {
         try {
@@ -20,8 +21,10 @@ class CreateBlogController extends Controller
                     'message' => 'Blog created successfully'
                 ]);
         }catch (\Exception $exception){
-
+            return response()->json([
+                'error' => 'Failed to delete blog',
+                'details' => $exception->getMessage()
+            ], 500);
         }
-
     }
 }
