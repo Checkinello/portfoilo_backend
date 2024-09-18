@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Actions\Blog\CreateBlogAction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateBlogRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Blog\CreateBlogRequest;
 
 class CreateBlogController extends Controller
 {
