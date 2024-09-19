@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\User;
 
-use App\Http\Actions\Blog\UpdateBlogAction;
+use App\Http\Actions\User\DeleteUserAction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UpdateBlogController extends Controller
+class DeleteUserController extends Controller
 {
     public function __invoke(
-        UpdateBlogAction $updateBlogAction,
+        DeleteUserAction $deleteUserAction,
         Request $request,
         $uuid
     )
     {
         try {
-            $updateBlogAction->__invoke($uuid, $request->all());
+            $deleteUserAction->__invoke($uuid);
 
             return response()->json([
-                'message' => 'Blog update successfully'
+                'message' => 'User deleted successfully'
             ]);
         }catch (\Exception $exception){
             return response()->json([
-                'error' => 'Failed to update blog',
+                'error' => 'Failed to delete user',
                 'details' => $exception->getMessage()
             ], 400);
         }

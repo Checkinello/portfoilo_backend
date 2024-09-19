@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $fillable = [
         'name',
         'email',
@@ -32,6 +35,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function blogs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Blog::class);
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -55,7 +62,7 @@ class User extends Authenticatable
         // Generate a UUID when creating a new user
         static::creating(function ($model) {
             if (empty($model->id)) {
-                $model->id = (string) Str::uuid();  // Generate a UUID
+                $model->id = (string) Str::uuid();
             }
         });
     }
