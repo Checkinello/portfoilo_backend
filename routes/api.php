@@ -11,6 +11,7 @@ use App\Http\Controllers\Review\ReadAllReviewsController;
 use App\Http\Controllers\Review\UpdateReviewController;
 use App\Http\Controllers\User\CreateUserController;
 use App\Http\Controllers\User\DeleteUserController;
+use App\Http\Controllers\User\LoginUserController;
 use App\Http\Controllers\User\ReadAllUsersController;
 use App\Http\Controllers\User\UpdateUserController;
 
@@ -21,14 +22,19 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-route::post('/blog',CreateBlogController::class);
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    route::post('/blog',CreateBlogController::class);
+    route::put('blog/{id}', UpdateBlogController::class);
+    route::delete('blog/{id}', DeleteBlogController::class);
+
+    route::put('/user/{uuid}',UpdateUserController::class);
+    route::delete('/user/{uuid}',DeleteUserController::class);
+    route::get('/users',ReadAllUsersController::class);
+});
 route::get('/blogs',ReadAllBlogsController::class);
-route::put('blog/{id}', UpdateBlogController::class);
-route::delete('blog/{id}', DeleteBlogController::class);
+
 route::post('/user',CreateUserController::class);
-route::get('/users',ReadAllUsersController::class);
-route::put('/user/{uuid}',UpdateUserController::class);
-route::delete('/user/{uuid}',DeleteUserController::class);
+route::post('/login',LoginUserController::class);
 
 route::post('/contactForm',CreateContactFormController::class);
 
@@ -36,5 +42,4 @@ route::post('/review',CreateReviewController::class);
 route::get('/review',ReadAllReviewsController::class);
 route::put('review/{id}', UpdateReviewController::class);
 route::delete('review/{id}', DeleteReviewController::class);
-
 
