@@ -13,7 +13,6 @@ class CreateBlogController extends Controller
         CreateBlogRequest $request
     )
     {
-//        dd($request);
         try {
             $createBlogAction->__invoke($request->all());
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Actions\Blog\DeleteBlogAction;
-use App\Http\Actions\Blog\UpdateBlogAction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

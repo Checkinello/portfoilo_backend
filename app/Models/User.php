@@ -59,7 +59,7 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        // Generate a UUID when creating a new user
+
         static::creating(function ($model) {
             if (empty($model->id)) {
                 $model->id = (string) Str::uuid();

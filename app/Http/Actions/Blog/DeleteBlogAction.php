@@ -8,6 +8,6 @@ class DeleteBlogAction
 {
     public function __invoke($id)
     {
-        $blog = Blog::findOrFail($id)->delete;
+        $blog = Blog::findOrFail($id)->delete();
     }
 }
