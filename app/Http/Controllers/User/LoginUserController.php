@@ -15,7 +15,6 @@ class LoginUserController extends Controller
     {
         try {
             $token = $loginUserAction->__invoke($request);
-
             return response()->json([
                 'message' => 'Login success',
                 'BearerToken' => $token
