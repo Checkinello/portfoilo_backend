@@ -26,7 +26,6 @@ class CreateBlogRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'user_id' => 'required|uuid|exists:users,id',
         ];
     }
 

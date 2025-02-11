@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Actions\Blog\CreateBlogAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\CreateBlogRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CreateBlogController extends Controller
 {
@@ -14,6 +15,8 @@ class CreateBlogController extends Controller
     )
     {
         try {
+            $request['user_id'] = Auth::user()->id;
+
             $createBlogAction->__invoke($request->all());
 
                 return response()->json([
