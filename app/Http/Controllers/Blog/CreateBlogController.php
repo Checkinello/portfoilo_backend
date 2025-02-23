@@ -13,6 +13,7 @@ class CreateBlogController extends Controller
         CreateBlogAction $createBlogAction,
         CreateBlogRequest $request
     )
+//Data dat in database moet mee geven naar de action
     {
         try {
             $request['user_id'] = Auth::user()->id;

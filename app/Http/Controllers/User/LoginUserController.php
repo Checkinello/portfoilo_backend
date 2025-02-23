@@ -12,6 +12,7 @@ class LoginUserController extends Controller
         Request         $request,
         LoginUserAction $loginUserAction
     )
+//        data ban api pakken en doorgeven aan action.
     {
         try {
             $token = $loginUserAction->__invoke($request);

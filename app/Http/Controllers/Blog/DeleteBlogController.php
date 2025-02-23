@@ -13,6 +13,7 @@ class DeleteBlogController extends Controller
         DeleteBlogAction $deleteBlogAction,
         Request $request,
     )
+        //Data dat verwijderd moet worden geven aan de action
     {
         try {
             $deleteBlogAction->__invoke($request->id);
