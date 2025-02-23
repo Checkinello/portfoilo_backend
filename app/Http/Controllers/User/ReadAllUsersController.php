@@ -10,6 +10,8 @@ class ReadAllUsersController extends Controller
     public function __invoke(
         ReadAllUsersAction $readAllUsersAction
     )
+        //Data dat opgehaald moet worden doorgeven aan de action
+
     {
         try {
             $users = $readAllUsersAction->__invoke();

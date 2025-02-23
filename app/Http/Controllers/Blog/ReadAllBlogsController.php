@@ -11,6 +11,7 @@ class ReadAllBlogsController extends Controller
     public function __invoke(
         ReadAllBlogsAction $readAllBlogsAction
     )
+        //Data dat opgehaald moet worden doorgeven aan de action
     {
         try {
             $blogs = $readAllBlogsAction->__invoke();

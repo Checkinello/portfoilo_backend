@@ -13,6 +13,8 @@ class DeleteUserController extends Controller
         Request $request,
         $uuid
     )
+        //Data dat verwijderd moet worden geven aan de action
+
     {
         try {
             $deleteUserAction->__invoke($uuid);

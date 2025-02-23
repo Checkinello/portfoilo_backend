@@ -12,6 +12,8 @@ class CreateUserController extends Controller
         CreateUserAction $createUserAction,
         CreateUserRequest $request
     )
+//Data dat in database moet mee geven naar de action
+
     {
         try {
             $createUserAction->__invoke($request->all());

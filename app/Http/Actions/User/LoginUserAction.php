@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 class LoginUserAction
+// BearerToken aanmaken als email en wachtwoord overeen komen met email en wachtwoord in de users tabel
 {
     public function __invoke($request)
     {

@@ -13,6 +13,7 @@ class UpdateBlogController extends Controller
         Request $request,
         $uuid
     )
+//        Code dat geupdate moet worden ophalen, aanpassen en doorgeven aan de action
     {
         try {
             $updateBlogAction->__invoke($uuid, $request->all());

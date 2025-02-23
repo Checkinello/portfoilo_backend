@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
-
+//Dit zijn de routes waarvoor he ingelogd moet zijn
 Route::group(['middleware' => 'auth:sanctum'], function () {
     route::post('/blog',CreateBlogController::class);
     route::put('blog/{id}', UpdateBlogController::class);
@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     route::delete('/user/{uuid}',DeleteUserController::class);
     route::get('/users',ReadAllUsersController::class);
 });
+//dit zijn de overige routes
 route::get('/blogs',ReadAllBlogsController::class);
 
 route::post('/user',CreateUserController::class);

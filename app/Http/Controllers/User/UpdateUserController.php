@@ -13,6 +13,8 @@ class UpdateUserController extends Controller
         UpdateUserRequest $request,
         $id
     )
+        //        Code dat geupdate moet worden ophalen, aanpassen en doorgeven aan de action
+
     {
         try {
             $updateUserAction->__invoke($id, $request->all());
